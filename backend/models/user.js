@@ -3,7 +3,9 @@ const userSchema = new Schema(
   {
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    name: String,
+    name: { type: String },
+    bio: { type: String },
+    age: { type: Number },
   },
   { timestamps: true },
 );
