@@ -5,6 +5,7 @@ require("dotenv").config();
 //local module
 const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
+const taskRoutes = require("./routes/taskRoutes");
 
 const app = express();
 app.use(express.json());
@@ -25,3 +26,4 @@ app.listen(PORT, () => {
 
 app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
+app.use("/api/tasks", taskRoutes);
