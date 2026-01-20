@@ -1,5 +1,6 @@
 //external modules
 const express = require("express");
+const cors = require("cors");
 const mongoose = require("mongoose");
 require("dotenv").config();
 //local module
@@ -8,6 +9,16 @@ const userRoutes = require("./routes/userRoutes");
 const taskRoutes = require("./routes/taskRoutes");
 
 const app = express();
+app.use(
+  cors({
+    origin: [
+      "https://primetrade-auth-dashboard-pi.vercel.app",
+      "https://primetrade-auth-dashboard-1.onrender.com",
+    ],
+    credentials: true,
+  }),
+);
+
 app.use(express.json());
 
 mongoose
