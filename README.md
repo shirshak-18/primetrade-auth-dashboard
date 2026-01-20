@@ -122,7 +122,7 @@ npm run dev
 
 Frontend runs on:
 
-https://primetrade-auth-dashboardshirshak.vercel.app/login
+https://primetrade-auth-dashboardshirshak.vercel.app/
 Vite proxy is used to forward /api requests to the backend.
 
 🔐 API Endpoints Overview
