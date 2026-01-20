@@ -7,15 +7,16 @@ const Dashboard = () => {
   const { token, logout } = useContext(AuthContext);
   const [tasks, setTasks] = useState([]);
 
+  const API_URL = import.meta.env.VITE_API_URL;
   useEffect(() => {
-    fetch("/api/tasks", {
+    fetch(`${API_URL}/api/tasks`, {
       headers: {
         Authorization: token,
       },
     })
       .then((res) => res.json())
       .then((data) => setTasks(data.tasks || []));
-  }, [token]);
+  }, [token, API_URL]);
 
   return (
     <>

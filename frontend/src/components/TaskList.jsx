@@ -1,6 +1,7 @@
 const TaskList = ({ tasks, token, setTasks }) => {
+  const API_URL = import.meta.env.VITE_API_URL;
   const toggleTask = async (id, completed) => {
-    const res = await fetch(`/api/tasks/${id}`, {
+    const res = await fetch(`${API_URL}/api/tasks/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -17,7 +18,7 @@ const TaskList = ({ tasks, token, setTasks }) => {
   };
 
   const deleteTask = async (id) => {
-    const res = await fetch(`/api/tasks/${id}`, {
+    const res = await fetch(`${API_URL}/api/tasks/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: token,
