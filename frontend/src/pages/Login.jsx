@@ -22,7 +22,7 @@ const Login = () => {
 
     if (data.token) {
       login(data.token);
-      navigate("dashboard");
+      navigate("/dashboard");
     } else {
       alert("Login failed");
     }
@@ -52,7 +52,7 @@ const Login = () => {
               New user?{" "}
               <span
                 style={{ cursor: "pointer", color: "blue" }}
-                onClick={() => navigate("signup")}
+                onClick={() => navigate("/signup")}
               >
                 Signup
               </span>

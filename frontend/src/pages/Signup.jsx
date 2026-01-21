@@ -20,7 +20,7 @@ const Signup = () => {
 
     if (res.ok) {
       alert("Signup successful. Please login.");
-      navigate("login");
+      navigate("/login");
     } else {
       alert(data.message || "Signup failed");
     }
