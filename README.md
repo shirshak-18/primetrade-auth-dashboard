@@ -150,7 +150,7 @@ DELETE /api/tasks/:id
 
 All protected routes require:
 
-Authorization: Bearer <JWT_TOKEN>
+Authorization: <JWT_TOKEN>
 
 ✅ Validation Strategy
 
@@ -189,6 +189,100 @@ Bootstrap is used for quick and clean styling
 Thunder Client was used for backend testing
 
 The application demonstrates end-to-end full-stack flow
+
+## API Documentation
+
+### Authentication
+
+POST /api/auth/register  
+Registers a new user.
+
+Request Body:
+{
+"email": "user@example.com",
+"password": "password123"
+}
+
+Response:
+{
+"token": "<jwt_token>"
+}
+
+---
+
+POST /api/auth/login  
+Logs in an existing user.
+
+Request Body:
+{
+"email": "user@example.com",
+"password": "password123"
+}
+
+Response:
+{
+"token": "<jwt_token>"
+}
+
+---
+
+### User
+
+GET /api/user/me  
+Returns authenticated user profile.
+
+Headers:
+Authorization: <JWT_TOKEN>
+
+---
+
+### Tasks
+
+GET /api/tasks  
+Fetch all tasks for logged-in user.
+
+POST /api/tasks  
+Create a new task.
+
+PUT /api/tasks/:id  
+Update a task.
+
+DELETE /api/tasks/:id  
+Delete a task.
+
+Headers (for all protected routes):
+Authorization: <JWT_TOKEN>
+
+## Production Scaling Considerations
+
+To scale this frontend-backend architecture for production:
+
+1. **Frontend**
+   - Use code splitting and lazy loading for better performance
+   - Deploy behind a CDN (Vercel already provides this)
+   - Add error boundaries and global loading states
+
+2. **Backend**
+   - Move backend behind a load balancer
+   - Use horizontal scaling with multiple instances
+   - Introduce caching (Redis) for frequently accessed data
+   - Implement rate limiting and request validation
+
+3. **Authentication**
+   - Store JWT secrets securely using environment managers
+   - Use refresh tokens for long-lived sessions
+   - Consider OAuth for third-party login
+
+4. **Database**
+   - Use indexed queries for performance
+   - Add connection pooling
+   - Introduce read replicas for heavy read workloads
+
+5. **Security & Monitoring**
+   - Enable centralized logging
+   - Add monitoring (Prometheus / Grafana)
+   - Use HTTPS everywhere
+   - Enable CORS restrictions per environment
 
 👤 Author
 
