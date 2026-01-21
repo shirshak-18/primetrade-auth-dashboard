@@ -9,15 +9,7 @@ const userRoutes = require("./routes/userRoutes");
 const taskRoutes = require("./routes/taskRoutes");
 
 const app = express();
-app.use(
-  cors({
-    origin: [
-      "https://primetrade-auth-dashboard-pi.vercel.app",
-      "https://primetrade-auth-dashboard-1.onrender.com",
-    ],
-    credentials: true,
-  }),
-);
+app.use(cors());
 
 app.use(express.json());
 
