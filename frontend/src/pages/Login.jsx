@@ -22,7 +22,7 @@ const Login = () => {
 
     if (data.token) {
       login(data.token);
-      navigate("/");
+      navigate("dashboard");
     } else {
       alert("Login failed");
     }
@@ -49,7 +49,13 @@ const Login = () => {
               <button type="submit">Login</button>
             </form>
             <p>
-              New user? <a href="/signup">Signup</a>
+              New user?{" "}
+              <span
+                style={{ cursor: "pointer", color: "blue" }}
+                onClick={() => navigate("signup")}
+              >
+                Signup
+              </span>
             </p>
           </div>
         </div>

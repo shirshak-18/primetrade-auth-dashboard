@@ -13,7 +13,7 @@ import Signup from "./pages/Signup";
 
 const PrivateRoute = ({ children }) => {
   const { token } = useContext(AuthContext);
-  return token ? children : <Navigate to="/login" />;
+  return token ? children : <Navigate to="login" />;
 };
 
 function App() {
